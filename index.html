@@ -19,6 +19,13 @@
     replaced by our app as soon as we start it.</p>
     </div>
     
+    <div class="row">
+      <div id="main-region"class="container">
+        <p>Here is static content in the web page.
+          You'll notice that it gets replaced by our app as soon as we start it.</p>
+      </div>
+    </div>
+    
     <!-- Marionette assets -->
     <script src="./assets/js/vendor/jquery-1.9.1.js"></script>
     <script src="./assets/js/vendor/json2.js"></script>
@@ -31,10 +38,19 @@
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>
 
+    <script type="text/template" id="static-template">
+      <p>This is text that was rendered by our Marionette app.</p>
+    </script>
+
+    <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">
     var ContactManager = new Marionette.Application();
-      ContactManager.on("initialize:after", function(){
-        console.log("ContactManager has started!");
+      ContactManager.addRegions({ mainRegion: "#main-region" });
+      ContactManager.StaticView = Marionette.ItemView.extend({ template: "#static-template" });
+      ContactManager.on("initialize:after",
+        function(){
+          var staticView = new ContactManager.StaticView();
+          ContactManager.mainRegion.show(staticView);
       });
       ContactManager.start();
     </script>
