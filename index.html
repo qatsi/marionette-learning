@@ -3,43 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <title>Marionette + Foundation</title>
+    <link rel="stylesheet" href="./assets/stylesheets/marionette.css" />
+    <script src="./assets/components/modernizr/modernizr.js"></script>
   </head>
   <body>
     <div class="row">
       <div class="large-12 columns">
-        <h1>Welcome to Marionette Learning</h1>
+        <h1>Marionette + Foundation Learning</h1>
       </div>
     </div>
-
     <div class="row">
-    <p>Here is static content in the web page. You'll notice that it gets
-    replaced by our app as soon as we start it.</p>
+      <p>Here is static content in the web page.</p>
     </div>
-    
     <div class="row">
       <div id="main-region"class="container">
-        <p>Here is static content in the web page.
-          You'll notice that it gets replaced by our app as soon as we start it.</p>
+        <p>You'll notice that it gets replaced by our app as soon as we start it.</p>
       </div>
     </div>
-    
-    <!-- Marionette assets -->
-    <script src="./assets/js/vendor/jquery-1.9.1.js"></script>
-    <script src="./assets/js/vendor/json2.js"></script>
-    <script src="./assets/js/vendor/underscore.js"></script>
-    <script src="./assets/js/vendor/backbone.js"></script>
-    <script src="./assets/js/vendor/backbone.marionette.js"></script>
-    <!-- Marionette assets ends -->
+    <!-- Shared assets -->
+    <script src="./assets/components/jquery/dist/jquery.min.js"></script>
+    <!-- Marionette (learning?) assets -->
+    <script src="./assets/components/json2/json2.js"></script>
+    <script src="./assets/components/underscore/underscore.js"></script>
+    <script src="./assets/components/backbone/backbone.js"></script>
+    <script src="./assets/components/backbone.wreqr/lib/backbone.wreqr.js"></script>
 
+    <!-- <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script> -->
+    <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script>
 
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+    <!-- Foundation assets -->
+    <script src="./assets/components/foundation/js/foundation.min.js"></script>
+    <!-- Application assets -->
+    <script src="./assets/javascripts/marionette.js"></script>
 
     <script type="text/template" id="static-template">
-      <p>This is text that was rendered by our Marionette app.</p>
+      <p><strong>This is text that was rendered by our Marionette app.</strong></p>
     </script>
 
     <!-- The javascript libraries get included here (edited for brevity) -->
@@ -54,6 +53,5 @@
       });
       ContactManager.start();
     </script>
-
   </body>
 </html>

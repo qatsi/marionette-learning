@@ -1,8 +1,11 @@
 {
-  "name": "foundation-compass-app",
+  "name": "marionette-foundation",
   "version": "0.0.1",
   "private": "true",
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation",
+    "backbone.marionette": "marionettejs/backbone.marionette",
+    "backbone.wreqr": "marionettejs/backbone.wreqr",
+    "json2": "douglascrockford/JSON-js"
   }
 }
