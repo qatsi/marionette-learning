@@ -47,20 +47,32 @@
     <script type="text/template" id="list-item-template">
       <li><span class="success round label">One item</span></li>
     </script>
+    <script type="text/template" id="contact-template">
+      <p><strong>First name:</strong> <%= firstName %>,
+      <strong>last name:</strong> <%= lastName %>,
+      <strong>phone:</strong> <%= phoneNumber %></p>
+    </script>
 
     <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">
+    // Marionette application defined
     var ContactManager = new Marionette.Application();
       ContactManager.addRegions({ mainRegion: "#main-region" });
-      ContactManager.StaticView = Marionette.ItemView.extend({ template: "#static-template" });
+
+      ContactManager.Contact = Backbone.Model.extend({});
+      ContactManager.ContactView = Marionette.ItemView.extend({ template: "#contact-template" });
+
       ContactManager.on("initialize:after",
         function(){
-          var staticView = new ContactManager.StaticView({
-              template:  "#list-item-template",
-              tagName:   "ul"
-            });
-          ContactManager.mainRegion.show(staticView);
+          var alice = new ContactManager.Contact({
+            firstName: "Alice",
+            lastName: "Arten",
+            phoneNumber: "555-0184"
+          });
+        var aliceView = new ContactManager.ContactView({ model: alice });
+        ContactManager.mainRegion.show(aliceView);
       });
+
       ContactManager.start();
     </script>
   </body>
