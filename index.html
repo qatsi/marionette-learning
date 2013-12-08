@@ -60,14 +60,18 @@
       ContactManager.addRegions({ mainRegion: "#main-region" });
 
       ContactManager.Contact = Backbone.Model.extend({
-        defaults: { firstName: '' }
+        defaults: { firstName: '[dafault value]' }
       });
-      ContactManager.ContactView = Marionette.ItemView.extend({ template: "#contact-template" });
+      ContactManager.ContactView = Marionette.ItemView.extend({
+        template: "#contact-template",
+        events: { "click p": "alertPhoneNumber" }, 
+          alertPhoneNumber: function(){ alert(this.model.escape("phoneNumber")); }
+        });
 
       ContactManager.on("initialize:after",
         function(){
           var alice = new ContactManager.Contact({
-            // firstName: "Alice",
+            /* firstName: "Alice", */
             lastName: "Arten",
             phoneNumber: "555-0184"
           });
