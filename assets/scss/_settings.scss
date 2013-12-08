@@ -34,7 +34,7 @@ $experimental: true;
 
 // $row-width: rem-calc(1000);
 // $column-gutter: rem-calc(30);
-// $total-columns: 12;
+$total-columns: 8;
 
 // We use these to control various global styles
 // $body-bg: #fff;
@@ -168,7 +168,7 @@ $experimental: true;
 // $block-grid-default-spacing: rem-calc(20);
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
-// $block-grid-media-queries: true;
+$block-grid-media-queries: false;
 
 // Breadcrumbs
 
