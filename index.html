@@ -33,9 +33,9 @@
     <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script>
 
     <!-- Foundation assets -->
-    <script src="./assets/components/foundation/js/foundation.min.js"></script>
+    <!-- <script src="./assets/components/foundation/js/foundation.min.js"></script>  -->
     <!-- Application assets -->
-    <script src="./assets/javascripts/marionette.js"></script>
+    <!-- <script src="./assets/javascripts/marionette.js"></script> -->
 
     <!-- Marionette templates -->
     <script type="text/template" id="static-template">
@@ -43,6 +43,9 @@
     </script>
     <script type="text/template" id="different-static-template">
       <p>Text from a different template...</p>
+    </script>
+    <script type="text/template" id="list-item-template">
+      <li><span class="success round label">One item</span></li>
     </script>
 
     <!-- The javascript libraries get included here (edited for brevity) -->
@@ -53,10 +56,8 @@
       ContactManager.on("initialize:after",
         function(){
           var staticView = new ContactManager.StaticView({
-              template:  "#different-static-template",
-              id:        "static-view",
-              tagName:   "span",
-              className: "instruction"
+              template:  "#list-item-template",
+              tagName:   "ul"
             });
           ContactManager.mainRegion.show(staticView);
       });
