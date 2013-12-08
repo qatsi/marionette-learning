@@ -59,13 +59,15 @@
     var ContactManager = new Marionette.Application();
       ContactManager.addRegions({ mainRegion: "#main-region" });
 
-      ContactManager.Contact = Backbone.Model.extend({});
+      ContactManager.Contact = Backbone.Model.extend({
+        defaults: { firstName: '' }
+      });
       ContactManager.ContactView = Marionette.ItemView.extend({ template: "#contact-template" });
 
       ContactManager.on("initialize:after",
         function(){
           var alice = new ContactManager.Contact({
-            firstName: "Alice",
+            // firstName: "Alice",
             lastName: "Arten",
             phoneNumber: "555-0184"
           });
