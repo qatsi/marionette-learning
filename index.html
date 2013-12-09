@@ -14,13 +14,11 @@
       </div>
     </div>
     <div class="row">
-      <p>Here is static content in the web page.</p>
-    </div>
-    <div class="row">
       <div id="main-region"class="container">
         <p>You'll notice that it gets replaced by our app as soon as we start it.</p>
       </div>
     </div>
+
     <!-- Shared assets -->
     <script src="./assets/components/jquery/dist/jquery.min.js"></script>
     <!-- Marionette (learning?) assets -->
@@ -28,6 +26,7 @@
     <script src="./assets/components/underscore/underscore.js"></script>
     <script src="./assets/components/backbone/backbone.js"></script>
     <script src="./assets/components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+    <script src="./assets/components/backbone.babysitter/lib/backbone.babysitter.js"></script>
 
     <!-- <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script> -->
     <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script>
@@ -38,45 +37,58 @@
     <!-- <script src="./assets/javascripts/marionette.js"></script> -->
 
     <!-- Marionette templates -->
-    <script type="text/template" id="static-template">
-      <p><strong>This is text that was rendered by our Marionette app.</strong></p>
-    </script>
-    <script type="text/template" id="different-static-template">
-      <p>Text from a different template...</p>
-    </script>
-    <script type="text/template" id="list-item-template">
-      <li><span class="success round label">One item</span></li>
-    </script>
-    <script type="text/template" id="contact-template">
-      <p><strong>First name:</strong> <%= firstName %>,
-      <strong>last name:</strong> <%= lastName %>,
-      <strong>phone:</strong> <%= phoneNumber %></p>
+    <script type="text/template" id="contact-list-item">
+      <li><%= firstName %> <%= lastName %></li>
     </script>
 
     <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">
-    // Marionette application defined
-    var ContactManager = new Marionette.Application();
-      ContactManager.addRegions({ mainRegion: "#main-region" });
+      var ContactManager = new Marionette.Application();
 
-      ContactManager.Contact = Backbone.Model.extend({
-        defaults: { firstName: '[dafault value]' }
+      ContactManager.addRegions({
+        mainRegion: "#main-region"
       });
-      ContactManager.ContactView = Marionette.ItemView.extend({
-        template: "#contact-template",
-        events: { "click p": "alertPhoneNumber" }, 
-          alertPhoneNumber: function(){ alert(this.model.escape("phoneNumber")); }
-        });
 
-      ContactManager.on("initialize:after",
-        function(){
-          var alice = new ContactManager.Contact({
-            /* firstName: "Alice", */
+      ContactManager.Contact = Backbone.Model.extend({});
+
+      ContactManager.ContactCollection = Backbone.Collection.extend({
+        model: ContactManager.Contact
+      });
+
+      ContactManager.ContactItemView = Marionette.ItemView.extend({
+        tagName: "li",
+        template: "#contact-list-item"
+      });
+
+      ContactManager.ContactsView = Marionette.CollectionView.extend({
+        tagName: "ul",
+        itemView: ContactManager.ContactItemView
+      });
+
+      ContactManager.on("initialize:after", function(){
+        var contacts = new ContactManager.ContactCollection([
+          {
+            firstName: "Bob",
+            lastName: "Brigham",
+            phoneNumber: "555-0163"
+          },
+          {
+            firstName: "Alice",
             lastName: "Arten",
             phoneNumber: "555-0184"
-          });
-        var aliceView = new ContactManager.ContactView({ model: alice });
-        ContactManager.mainRegion.show(aliceView);
+          },
+          {
+            firstName: "Charlie",
+            lastName: "Campbell",
+            phoneNumber: "555-0129"
+          }
+        ]);
+
+        var contactsView = new ContactManager.ContactsView({
+          collection: contacts
+        });
+
+        ContactManager.mainRegion.show(contactsView);
       });
 
       ContactManager.start();
