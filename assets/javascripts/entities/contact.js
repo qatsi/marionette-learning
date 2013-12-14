@@ -1,6 +1,4 @@
-ContactManager.module('Entities', function(
-  Entities, ContactManager, Backbone, Marionette, $, _
-){
+ContactManager.module('Entities', function(Entities, ContactManager, Backbone, Marionette, $, _){
   var alertPrivate = function(message){
     alert("Private alert: " + message);
   }

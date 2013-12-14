@@ -41,22 +41,12 @@
     <!-- Application assets -->
     <script src="./assets/javascripts/app.js"></script>
     <script src="./assets/javascripts/entities/contact.js"></script>
+    <script src="./assets/javascripts/apps/contacts/list/list_view.js"></script>
 
     <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">
-
-      ContactManager.ContactItemView = Marionette.ItemView.extend({
-        tagName: "li",
-        template: "#contact-list-item"
-      });
-
-      ContactManager.ContactsView = Marionette.CollectionView.extend({
-        tagName: "ul",
-        itemView: ContactManager.ContactItemView
-      });
-
       ContactManager.on("initialize:after", function(){
-        var contactsView = new ContactManager.ContactsView({
+        var contactsView = new ContactManager.ContactsApp.List.Contacts({
           collection: ContactManager.request('contact:entities')
         });
         ContactManager.mainRegion.show(contactsView);
