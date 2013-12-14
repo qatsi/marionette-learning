@@ -47,17 +47,7 @@
 
 
 
-      ContactManager.Contact = Backbone.Model.extend({});
-
-      ContactManager.ContactCollection = Backbone.Collection.extend({
-        model: ContactManager.Contact,
-        selectedStrategy: "firstName",
-        comparator: function(a){
-          var full_name = a.get('firstName') + a.get('lastName');
-          console.log(full_name);
-          return full_name;
-        }
-      });
+ 
 
       ContactManager.ContactItemView = Marionette.ItemView.extend({
         tagName: "li",
@@ -70,7 +60,7 @@
       });
 
       ContactManager.on("initialize:after", function(){
-        var contacts = new ContactManager.ContactCollection([
+        var contacts = new ContactManager.Entities.ContactCollection([
           {
             firstName: "Alice",
             lastName: "Tampen"
