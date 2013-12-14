@@ -33,21 +33,19 @@
 
     <!-- Foundation assets -->
     <!-- <script src="./assets/components/foundation/js/foundation.min.js"></script>  -->
-    <!-- Application assets -->
-    <!-- <script src="./assets/javascripts/marionette.js"></script> -->
-
     <!-- Marionette templates -->
     <script type="text/template" id="contact-list-item">
       <li><%= firstName %> <%= lastName %></li>
     </script>
 
+    <!-- Application assets -->
+    <script src="./assets/javascripts/app.js"></script>
+    <script src="./assets/javascripts/entities/contact.js"></script>
+
     <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">
-      var ContactManager = new Marionette.Application();
 
-      ContactManager.addRegions({
-        mainRegion: "#main-region"
-      });
+
 
       ContactManager.Contact = Backbone.Model.extend({});
 
@@ -102,6 +100,7 @@
       });
 
       ContactManager.start();
+      ContactManager.Entities.alertPublic('Wow!');
     </script>
   </body>
 </html>
