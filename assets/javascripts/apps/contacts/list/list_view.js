@@ -4,7 +4,7 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     template: List.Templates.listItemView,
     events: {
       // 'click': 'highlightNames',
-      'click td': 'showInfo', 
+      'click': 'showInfo', 
     },
     highlightNames: function(e){
       // console.log(this);
@@ -12,9 +12,9 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       this.$el.toggleClass('alert');
     },
     showInfo: function(e){
-      console.log(e);
+      console.log(this.$el);
       e.preventDefault();
-      alert($(e.target).text());
+      alert($(this.el).text());
     }
     
 
