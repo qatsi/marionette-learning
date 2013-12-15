@@ -1,2 +1,19 @@
 @import "settings";
 @import "marionette_imports";
+
+@mixin table-style($bg:$primary-color) {
+  // We control which background color comes through
+  @if $bg {
+    // This find the lightness percentage of the background color.
+    $bg-lightness: lightness($bg);
+    background-color: $bg;
+    // We control the text color for you based on the background color.
+    @if $bg-lightness < 70% { color: $label-font-color-alt; }
+    @else { color: $label-font-color; }
+  }
+}
+
+table
+  tbody
+    tr.alert
+      td { @include table-style($alert-color); }
