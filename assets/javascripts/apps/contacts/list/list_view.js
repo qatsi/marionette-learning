@@ -21,8 +21,13 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       e.stopPropagation();
       console.log(this.model);
       this.trigger('contact:delete', this.model);
+    },
+    remove: function(){
+      this.$el.fadeOut(function(){
+        // Delete element
+        $(this).remove();
+      });
     }
-
   });
   List.Contacts = Marionette.CompositeView.extend({
     tagName: 'table',
