@@ -19,7 +19,7 @@ table
   tbody
     tr.alert
       td
-        { @include table-style($alert-color); }
+        { @include table-style(lighten($alert-color, 40%)); }
   tbody
     tr
       td
