@@ -42,18 +42,12 @@
     <script src="./assets/javascripts/app.js"></script>
     <script src="./assets/javascripts/entities/contact.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_view.js"></script>
+    <script src="./assets/javascripts/apps/contacts/list/list_controller.js"></script>
 
     <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">
-      ContactManager.on("initialize:after", function(){
-        var contactsView = new ContactManager.ContactsApp.List.Contacts({
-          collection: ContactManager.request('contact:entities')
-        });
-        ContactManager.mainRegion.show(contactsView);
-      });
-
       ContactManager.start();
-      ContactManager.Entities.alertPublic('Wow!');
+      // ContactManager.Entities.alertPublic('Wow!');
     </script>
   </body>
 </html>
