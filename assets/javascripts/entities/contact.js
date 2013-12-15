@@ -28,7 +28,8 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
       { id: '4', firstName: 'Alice',   lastName: 'Arten',    phoneNumber: '555-0004' },
       { id: '5', firstName: 'Charlie', lastName: 'Campbell', phoneNumber: '555-0005' },
       { id: '6', firstName: 'Alice',   lastName: 'Smith',    phoneNumber: '555-0006' },
-      { id: '7', firstName: 'Alexander',lastName: 'Egorov',  phoneNumber: '555-0007' }
+      { id: '7', firstName: 'Alexander',lastName: 'Egorov',  phoneNumber: '555-0007' },
+      { id: '8', firstName: 'Michael',lastName: 'Abramovich',phoneNumber: '555-0008' }
     ]);
   }
   
@@ -40,7 +41,7 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
       return  contacts;
     }
   }
-  
+
   ContactManager.reqres.setHandler('contact:entities', function(){
     return API.getContactsEntities();
   })

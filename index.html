@@ -3,24 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marionette + Foundation</title>
+    <title>Contact management application</title>
     <link rel="stylesheet" href="./assets/stylesheets/marionette.css" />
     <script src="./assets/components/modernizr/modernizr.js"></script>
   </head>
   <body>
     <div class="row">
-      <div class="large-12 columns">
-        <h1>Marionette + Foundation Learning</h1>
-      </div>
+      <div class="large-12 columns"><h1>Contact manager</h1></div>
     </div>
     <div class="row">
-      <div id="main-region"class="container">
+      <div id='main-region'class='container'>
         <p>You'll notice that it gets replaced by our app as soon as we start it.</p>
       </div>
     </div>
 
     <!-- Shared assets -->
     <script src="./assets/components/jquery/dist/jquery.min.js"></script>
+
     <!-- Marionette (learning?) assets -->
     <script src="./assets/components/json2/json2.js"></script>
     <script src="./assets/components/underscore/underscore.js"></script>
@@ -32,15 +31,30 @@
     <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script>
 
     <!-- Foundation assets -->
-    <!-- <script src="./assets/components/foundation/js/foundation.min.js"></script>  -->
+    <!-- <script src="./assets/components/foundation/js/foundation.min.js"></script> -->
+
     <!-- Marionette templates -->
     <script type="text/template" id="contact-list-item">
-      <li><%= firstName %> <%= lastName %></li>
+      <td><%= id %></td>
+      <td><strong><%= firstName %></strong></td>
+      <td><strong><%= lastName %></strong></td>
+      <td><%= phoneNumber %></td>
+    </script>
+
+    <script type="text/template" id="contact-list">
+      <thead>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone number</th>
+      </thead>
+      <tbody></tbody>
     </script>
 
     <!-- Application assets -->
     <script src="./assets/javascripts/app.js"></script>
     <script src="./assets/javascripts/entities/contact.js"></script>
+    <script src="./assets/javascripts/apps/contacts/list/list_template.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_view.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_controller.js"></script>
 
