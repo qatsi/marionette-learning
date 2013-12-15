@@ -33,6 +33,12 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     tagName: 'table',
     template: List.Templates.listView,
     itemView: List.Contact,
-    itemViewContainer: 'tbody'
+    itemViewContainer: 'tbody',
+    // Magic trigger
+    onItemviewContactDelete: function(){
+      this.$el.fadeOut(function(){
+        $(this).fadeIn();
+      });
+    }
   });
 });
