@@ -3,8 +3,9 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     tagName: 'tr',
     template: List.Templates.listItemView,
     events: {
-      // 'click': 'highlightNames',
-      'click': 'showInfo', 
+      'click': 'highlightNames',
+      // 'click': 'showInfo',
+      'click a.button': function(){alert('Delete button was clicked')}, 
     },
     highlightNames: function(e){
       // console.log(this);
