@@ -1,5 +1,6 @@
 @import "settings";
 @import "marionette_imports";
+@import "foundation-icons";
 
 @mixin table-style($bg:$primary-color) {
   // We control which background color comes through
@@ -17,4 +18,16 @@ table
   { border-collapse: collapse; }
   tbody
     tr.alert
-      td { @include table-style($alert-color); }
+      td
+        { @include table-style($alert-color); }
+  tbody
+    tr
+      td
+        a.button
+          {
+          margin-bottom: 0px;
+          padding-top: $button-font-tny * 0.5;
+          padding-#{$opposite-direction}: $button-font-tny * 0.75;
+          padding-bottom: $button-font-tny * 0.5 + rem-calc(0.5);
+          padding-#{$default-float}: $button-font-tny * 0.75;
+          }

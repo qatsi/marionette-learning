@@ -1,4 +1,4 @@
 /.sass-cache/*
 *.DS_Store
 /assets/components/*
-/assets/stylesheets/*
+/assets/stylesheets/*.css
