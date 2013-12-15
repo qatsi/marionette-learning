@@ -14,7 +14,7 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
     selectedStrategy: "firstName",
     comparator: function(a){
       var full_name = a.get('firstName') + a.get('lastName');
-      console.log(full_name);
+      // console.log(full_name);
       return full_name;
     }
   });

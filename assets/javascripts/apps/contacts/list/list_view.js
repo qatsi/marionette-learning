@@ -5,8 +5,9 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     events: {
       'click': 'highlightNames'
     },
-    highlightNames: function(){
-      console.log(this);
+    highlightNames: function(e){
+      // console.log(this);
+      e.preventDefault();
       this.$el.toggleClass('alert');
     }
 
