@@ -6,7 +6,10 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       ContactManager.mainRegion.show(contactsListView);
       contactsListView.on('itemview:contact:delete', function(childView, model){
         contacts.remove(model);
-      })
+      });
+      contactsListView.on('itemview:contact:show', function(childView, model){
+        ContactManager.ContactsApp.Show.Controller.showContact(model);
+      });
     }
   }
 });

@@ -39,7 +39,12 @@
       <td><strong><%= firstName %></strong></td>
       <td><strong><%= lastName %></strong></td>
       <td><%= phoneNumber %></td>
-      <td><a href="#" class="button alert radius js-delete"><i class="fi-x"></i> Delete</a></td>
+      <td>
+        <div>
+          <a href="#" class="button success radius js-show"><i class="fi-eye"></i> Show</a>
+          <a href="#" class="button alert radius js-delete"><i class="fi-x"></i> Delete</a>
+        <div>
+      </td>
     </script>
 
     <script type="text/template" id="contact-list">
@@ -53,12 +58,20 @@
       <tbody></tbody>
     </script>
 
+    <script type="text/template" id="contact-show">
+      <h1><%= firstName %> <%= lastName %></h1>
+      <p><strong>Phone number:</strong> <%= phoneNumber %></p>
+    </script>
+
     <!-- Application assets -->
     <script src="./assets/javascripts/app.js"></script>
     <script src="./assets/javascripts/entities/contact.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_template.js"></script>
+    <script src="./assets/javascripts/apps/contacts/show/show_view.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_view.js"></script>
+    <script src="./assets/javascripts/apps/contacts/show/show_controller.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_controller.js"></script>
+
 
     <!-- The javascript libraries get included here (edited for brevity) -->
     <script type="text/javascript">

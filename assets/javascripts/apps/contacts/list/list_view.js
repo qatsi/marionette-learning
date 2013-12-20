@@ -5,7 +5,8 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     events: {
       'click': 'highlightNames',
       // 'click': 'showInfo',
-      'click a.button.js-delete': 'deleteClicked', 
+      'click a.button.js-delete': 'deleteClicked',
+      'click a.button.js-show': 'showClicked', 
     },
     highlightNames: function(e){
       // console.log(this);
@@ -13,14 +14,17 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       this.$el.toggleClass('alert');
     },
     showInfo: function(e){
-      console.log(this.$el);
       e.preventDefault();
       alert($(this.el).text());
     },
     deleteClicked: function(e){
       e.stopPropagation();
-      console.log(this.model);
       this.trigger('contact:delete', this.model);
+    },
+    showClicked: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      this.trigger('contact:show', this.model);
     },
     remove: function(){
       this.$el.fadeOut(function(){
