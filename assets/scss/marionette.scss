@@ -27,6 +27,7 @@ table
       td
         a.button
           {
+          font-size: $table-row-font-size;
           margin-bottom: 0px;
           padding-top: $button-font-tny * 0.5;
           padding-#{$opposite-direction}: $button-font-tny * 0.75;
