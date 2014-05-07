@@ -6,7 +6,7 @@ ContactManager.module('ContactsApp', function(ContactsApp, ContactManager, Backb
   });
   var API = {
     listContacts: function(){
-      // console.log('Route #contacts triggered');
+      console.log('Route #' + Backbone.history.fragment + ' triggered.');
       ContactsApp.List.Controller.listContacts();
     }
   };
