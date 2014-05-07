@@ -6,7 +6,8 @@ ContactManager.module('ContactsApp', function(ContactsApp, ContactManager, Backb
   });
   var API = {
     listContacts: function(){
-      console.log('Route #contacts triggered');
+      // console.log('Route #contacts triggered');
+      ContactsApp.List.Controller.listContacts();
     }
   };
   ContactManager.addInitializer(function(){
