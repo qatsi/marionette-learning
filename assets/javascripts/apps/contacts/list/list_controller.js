@@ -9,6 +9,7 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       });
       contactsListView.on('itemview:contact:show', function(childView, model){
         ContactManager.ContactsApp.Show.Controller.showContact(model);
+        ContactManager.navigate('contacts/' + model.get('id'));
       });
     }
   }
