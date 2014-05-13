@@ -4,7 +4,6 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     template: List.Templates.listItemView,
     events: {
       'click': 'highlightNames',
-      // 'click': 'showInfo',
       'click a.button.js-delete': 'deleteClicked',
       'click a.button.js-show': 'showClicked', 
     },

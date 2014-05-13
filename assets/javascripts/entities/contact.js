@@ -30,19 +30,19 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
       { id: '6', firstName: 'Alice',   lastName: 'Smith',    phoneNumber: '555-0006' },
       { id: '7', firstName: 'Alexander',lastName: 'Egorov',  phoneNumber: '555-0007' },
       { id: '8', firstName: 'Michael',lastName: 'Abramovich',phoneNumber: '555-0008' }
-    ]);
-  }
-  
-  var API = {
-    getContactsEntities: function () {
-      if (contacts === undefined) {
-        initializeContacts();
-      }
-      return  contacts;
+      ]);
     }
-  }
+  
+    var API = {
+      getContactsEntities: function () {
+        if (contacts === undefined) {
+          initializeContacts();
+        }
+        return  contacts;
+      }
+    }
 
-  ContactManager.reqres.setHandler('contact:entities', function(){
-    return API.getContactsEntities();
-  })
-});
+    ContactManager.reqres.setHandler('contact:entities', function(){
+      return API.getContactsEntities();
+    })
+  });
