@@ -7,9 +7,13 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
     alertPrivate(message);
   }
   
-  Entities.Contact = Backbone.Model.extend({});
+  Entities.Contact = Backbone.Model.extend({
+    urlRoot: 'contacts'
+  });
+  Entities.configureStorage(Entities.Contact);
 
   Entities.ContactCollection = Backbone.Collection.extend({
+    url: 'contacts',
     model: Entities.Contact,
     selectedStrategy: "firstName",
     comparator: function(a){
@@ -18,6 +22,7 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
       return full_name;
     }
   });
+  Entities.configureStorage(Entities.ContactCollection);
 
   var contacts;
   var initializeContacts = function(){
@@ -31,16 +36,23 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
       { id: '7', firstName: 'Alexander',lastName: 'Egorov',  phoneNumber: '555-0007' },
       { id: '8', firstName: 'Michael',lastName: 'Abramovich',phoneNumber: '555-0008' }
       ]);
-    }
-  
+      // Here we save each contacts
+      contacts.forEach(function(contact){
+        contact.save();
+      });
+    };
+
     var API = {
       getContactsEntities: function () {
-        if (contacts === undefined) {
+        contacts = new Entities.ContactCollection();
+        contacts.fetch();
+        if (contacts.length === 0) {
+          // Here we load out contacts
           initializeContacts();
         }
         return  contacts;
       }
-    }
+    };
 
     ContactManager.reqres.setHandler('contact:entities', function(){
       return API.getContactsEntities();
