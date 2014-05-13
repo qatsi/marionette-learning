@@ -51,10 +51,20 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
           initializeContacts();
         }
         return  contacts;
+      },
+      getContactsEntity: function(contactId){
+        var contact = new Entities.Contact({id: contactId});
+        contact.fetch();
+        return contact;
       }
     };
 
     ContactManager.reqres.setHandler('contact:entities', function(){
       return API.getContactsEntities();
-    })
+    });
+
+    ContactManager.reqres.setHandler('contact:entity', function(id){
+      return API.getContactsEntity(id);
+    });
+
   });
