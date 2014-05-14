@@ -43,19 +43,36 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
     };
 
     var API = {
+      getRandomTime: function(){
+        return 250 + _.random(0, 1500);
+      },
       getContactsEntities: function () {
         contacts = new Entities.ContactCollection();
-        contacts.fetch();
-        if (contacts.length === 0) {
-          // Here we load out contacts
-          initializeContacts();
-        }
-        return  contacts;
+        var deferredFetch = new $.Deferred();
+        var timeout = this.getRandomTime();
+        console.log('About to fetch all contacts in ' + timeout + 'ms.');
+         _.delay(function(){
+          contacts.fetch({
+            success: function(data){
+              console.log('Fetching all contacts is completed.');
+              deferredFetch.resolve(data);
+            }
+          })
+        }, timeout);
+        var promise = deferredFetch.promise();
+        $.when(promise).done(function(contacts){
+          if (contacts.length === 0) {
+            // Here we load out contacts
+            initializeContacts();
+            contacts.reset(models);
+          }
+        });
+        return promise;
       },
       getContactsEntity: function(contactId){
         var contact = new Entities.Contact({id: contactId});
         var deferredFetch = new $.Deferred();
-        var timeout = 250 + _.random(0, 1000);
+        var timeout = this.getRandomTime();
         // Additional logging:
         console.log('About to fetch contact data in ' + timeout + 'ms.');
         _.delay(function(){
@@ -63,6 +80,9 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
             success: function(data){
               console.log('Fetching of contact id:' + contactId + ' is completed.');
               deferredFetch.resolve(data);
+            },
+            error: function(data){
+              deferredFetch.resolve(undefined);
             }
           })
         }, timeout);
