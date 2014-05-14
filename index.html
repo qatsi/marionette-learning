@@ -24,6 +24,8 @@
     <script src="./assets/components/backbone.wreqr/lib/backbone.wreqr.js"></script>
     <script src="./assets/components/backbone.babysitter/lib/backbone.babysitter.js"></script>
     <script src="./assets/components/backbone.marionette/lib/core/backbone.marionette.js"></script>
+    <script src="./assets/javascripts/vendor/spin.js"></script>
+    <script src="./assets/javascripts/vendor/jquery.spin.js"></script>
     <!-- Foundation assets -->
     <!-- <script src="./assets/components/foundation/js/foundation.min.js"></script> -->
 
@@ -65,12 +67,20 @@
       <p><a href="#contacts" class="button tiny radius js-all"><i class="fi-list"></i> Show all contacts</a></p>
     </script>
 
+    <script type="text/template" id="loading">
+      <div data-alert class="alert-box info radius">
+        <div id="spinner"></div>
+        Loading data.
+      </div>
+    </script>
+
     <!-- Application assets -->
     <script src="./assets/javascripts/app.js"></script>
     <script src="./assets/javascripts/apps/config/storage/backbone.localStorage.js"></script>
     <script src="./assets/javascripts/apps/config/storage/localstorage.js"></script>
     <script src="./assets/javascripts/apps/contacts/contacts_app.js"></script>
     <script src="./assets/javascripts/entities/contact.js"></script>
+    <script src="./assets/javascripts/common/views.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_template.js"></script>
     <script src="./assets/javascripts/apps/contacts/show/show_view.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_view.js"></script>
