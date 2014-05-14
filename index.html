@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Marionette-learning by qatsi</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Marionette-learning</h1>
+        <p>My Marionette way</p>
+
+        <p class="view"><a href="https://github.com/qatsi/marionette-learning">View the Project on GitHub <small>qatsi/marionette-learning</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/qatsi/marionette-learning/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/qatsi/marionette-learning/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/qatsi/marionette-learning">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="marionette--foundation-example" class="anchor" href="#marionette--foundation-example"><span class="octicon octicon-link"></span></a>Marionette + Foundation example</h1>
+
+<p>Heck! The easiest way to understand <code>Marionette</code> + <code>Foundation</code>.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>Passion</li>
+<li>Brain (at least one hemisphere)</li>
+<li>Hands</li>
+<li>Milk</li>
+</ul><h2>
+<a name="quickstart" class="anchor" href="#quickstart"><span class="octicon octicon-link"></span></a>Quickstart</h2>
+
+<p>This is very hard to determine entry point. The mixture is the following:</p>
+
+<ul>
+<li>
+<a href="http://marionettejs.com/">Marionette.js</a> with dependencies</li>
+<li>
+<a href="http://foundation.zurb.com/">Foundation</a> with its dependencies too</li>
+<li>
+<a href="http://bower.io/">Bower</a> as Web-packages manager</li>
+<li>To be continued…</li>
+</ul><p>Please consider the following places to understand what is under the hood:</p>
+
+<ul>
+<li>This README.md</li>
+<li>
+<code>bower.json</code> it describes packages used in project</li>
+<li>
+<code>.bowerrc</code> <strong>bower</strong> web packages manager config. This is folder where bower packages installed to. These are shared JavaScript libraries so they are ignored by git.</li>
+<li>
+<code>config.rb</code> <a href="http://compass-style.org/">compass</a> configuration files. Some paths and setting are covered here. Feel free to change something and watch how <code>compass watch</code> will become nuts.</li>
+<li>
+<code>index.html</code> sorry, right now it's static. No comments here :-(</li>
+<li>
+<code>.gitignore</code> watch out stuff described here tends to be be overwritten!</li>
+</ul><h2>
+<a name="workflow" class="anchor" href="#workflow"><span class="octicon octicon-link"></span></a>Workflow</h2>
+
+<p>Then when you're working on your stylesheet i.e. hacking Foundation styles, just run the following command:</p>
+
+<div class="highlight highlight-bash"><pre>compass watch
+</pre></div>
+
+<p>Play with <code>./assets/scss/_settings.scss</code> and watch the magic.
+Statement above will recreate <code>css</code> stylesheet from your <code>scss</code> templates on the fly.</p>
+
+<h2>
+<a name="upgrade" class="anchor" href="#upgrade"><span class="octicon octicon-link"></span></a>Upgrade</h2>
+
+<p>If you'd like to upgrade to a newer version of Foundation or Marionette or etc. down the road just run:</p>
+
+<div class="highlight highlight-bash"><pre>bower update
+</pre></div>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<p>That is the favorite part.</p>
+
+<ul>
+<li>Follow the book i.e. finish yet another <em>TodoApp</em>
+</li>
+<li>Add some Ruby backend (<em>Sinatra</em>?)
+
+<ul>
+<li>To serve HAML templates</li>
+<li>To eliminate assert hell</li>
+</ul>
+</li>
+<li>Add some event driven Ruby backend
+
+<ul>
+<li>Push server messages (<em>Goliath</em> + <em>WebSockets</em>?)</li>
+<li>To store something to <em>PostgreSQL</em>
+</li>
+<li>To store something to <em>Redis</em>
+</li>
+</ul>
+</li>
+<li>Add some event driven Node.js backend for somewhat</li>
+<li>Add <code>Cucumber</code> tests with JavaScript testing</li>
+<li>Add <code>Guardfile</code>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/qatsi">qatsi</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
