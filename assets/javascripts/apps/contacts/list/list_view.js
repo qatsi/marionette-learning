@@ -42,6 +42,9 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
       this.$el.fadeOut(function(){
         $(this).fadeIn();
       });
+    },
+    onShow: function(){
+      ContactManager.infoRegion.close();
     }
   });
 });

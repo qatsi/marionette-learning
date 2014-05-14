@@ -2,7 +2,7 @@ ContactManager.module('ContactsApp.Show', function(Show, ContactManager, Backbon
   Show.Controller = {
     showContact: function(id){
       var loadingView = new ContactManager.Common.Views.Loading();
-      ContactManager.mainRegion.show(loadingView);
+      ContactManager.infoRegion.show(loadingView);
       // Here we recieve promise object
       var deferredContact = ContactManager.request('contact:entity', id);
       $.when(deferredContact).done(function(contact){
