@@ -54,8 +54,20 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
       },
       getContactsEntity: function(contactId){
         var contact = new Entities.Contact({id: contactId});
-        contact.fetch();
-        return contact;
+        var deferredFetch = new $.Deferred();
+        var timeout = 250 + _.random(0, 1000);
+        // Additional logging:
+        console.log('About to fetch contact data in ' + timeout + 'ms.');
+        _.delay(function(){
+          contact.fetch({
+            success: function(data){
+              console.log('Fetching of contact id:' + contactId + ' is completed.');
+              deferredFetch.resolve(data);
+            }
+          })
+        }, timeout);
+        // Here we send promise object
+        return deferredFetch.promise();
       }
     };
 
