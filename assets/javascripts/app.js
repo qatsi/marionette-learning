@@ -1,8 +1,18 @@
 var ContactManager = new Marionette.Application();
 
+info = Backbone.Marionette.Region.extend({
+  el: "#info-region",
+  open: function(view){
+    console.log(this);
+    this.$el.hide();
+    this.$el.empty().append(view.el);
+    this.$el.slideDown('fast');
+  }
+});
+
 ContactManager.addRegions({
   mainRegion: "#main-region",
-  infoRegion: "#info-region"
+  infoRegion: info
 });
 
 ContactManager.navigate = function(route, options){

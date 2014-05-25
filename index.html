@@ -35,8 +35,8 @@
     <!-- Marionette templates -->
     <script type="text/template" id="contact-list-item">
       <td><%= id %></td>
-      <td><strong><%= firstName %></strong></td>
-      <td><strong><%= lastName %></strong></td>
+      <td><%= firstName %></td>
+      <td><%= lastName %></td>
       <td><%= phoneNumber %></td>
       <td>
         <div>
@@ -72,8 +72,7 @@
 
     <script type="text/template" id="loading">
       <div data-alert class="alert-box info radius">
-        <div id="spinner"></div>
-        Loading data.
+        <div id="spinner"></div><strong><%= title %></strong> <%= message %>
       </div>
     </script>
 

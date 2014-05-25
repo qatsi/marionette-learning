@@ -1,7 +1,9 @@
 ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbone, Marionette, $, _) {
   List.Controller = {
     listContacts: function() {
-      var loadingView = new ContactManager.Common.Views.Loading();
+      var loadingView = new ContactManager.Common.Views.Loading({
+        title: 'Loading list.'
+      });
       ContactManager.infoRegion.show(loadingView);
 
       var deferredContacts = ContactManager.request('contact:entities');
