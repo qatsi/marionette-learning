@@ -19,6 +19,10 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
         contactsListView.on('itemview:contact:show', function(childView, model) {
           ContactManager.trigger('contact:show', model.get('id'));
         });
+        // Item edit trigger
+        contactsListView.on('itemview:contact:edit', function(childView, model) {
+          ContactManager.trigger('contact:edit', model.get('id'));
+        });
         // Show template
         ContactManager.mainRegion.show(contactsListView);
       });

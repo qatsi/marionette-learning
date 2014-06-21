@@ -61,7 +61,10 @@
     <script type="text/template" id="contact-show">
       <h1><%= firstName %> <%= lastName %></h1>
       <p><strong>Phone number:</strong> <%= phoneNumber %></p>
-      <p><a href="#contacts" class="button tiny radius js-all"><i class="fi-list"></i> Show all contacts</a></p>
+      <p>
+        <a href="#contacts" class="button tiny radius js-all"><i class="fi-list"></i>&nbsp;Show all contacts</a>
+        <a href="#contacts/<%= id %>/edit" class="button success tiny radius js-edit"><i class="fi-pencil"></i>&nbsp;Edit contact</a>
+      </p>
     </script>
 
     <script type="text/template" id="missing-contact">

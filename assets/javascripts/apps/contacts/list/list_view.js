@@ -4,26 +4,29 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
     template: List.Templates.listItemView,
     events: {
       'click': 'highlightNames',
-      'click a.button.js-delete': 'deleteClicked',
-      'click a.button.js-show': 'showClicked', 
+      'click a.button.js-show': 'showClicked',
+      'click a.button.js-edit': 'editClicked',
+      'click a.button.js-delete': 'deleteClicked'
     },
     highlightNames: function(e){
       // console.log(this);
       e.preventDefault();
       this.$el.toggleClass('alert');
     },
-    showInfo: function(e){
-      e.preventDefault();
-      alert($(this.el).text());
-    },
-    deleteClicked: function(e){
-      e.stopPropagation();
-      this.trigger('contact:delete', this.model);
-    },
     showClicked: function(e){
       e.preventDefault();
       e.stopPropagation();
       this.trigger('contact:show', this.model);
+    },
+    editClicked: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      this.trigger('contact:edit', this.model);
+    },
+    deleteClicked: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      this.trigger('contact:delete', this.model);
     },
     remove: function(){
       this.$el.fadeOut(function(){

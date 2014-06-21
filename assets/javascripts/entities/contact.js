@@ -44,7 +44,7 @@ ContactManager.module('Entities', function(Entities, ContactManager, Backbone, M
 
     var API = {
       getRandomTime: function(){
-        return 1000 + _.random(0, 2000);
+        return 1000 + _.random(0, 500);
       },
       getContactsEntities: function () {
         contacts = new Entities.ContactCollection();
