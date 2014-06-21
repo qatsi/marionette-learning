@@ -40,8 +40,9 @@
       <td><%= phoneNumber %></td>
       <td>
         <div>
-          <a href="#contacts/<%= id %>" class="button success radius js-show"><i class="fi-eye"></i> Show</a>
-          <a href="#" class="button alert radius js-delete"><i class="fi-x"></i> Delete</a>
+          <a href="#contacts/<%= id %>" class="button success radius js-show"><i class="fi-eye"></i>&nbsp;Show</a>
+          <a href="#contacts/<%= id %>/edit" class="button success radius js-edit"><i class="fi-pencil"></i>&nbsp;Edit</a>
+          <a href="#" class="button alert radius js-delete"><i class="fi-x"></i>&nbsp;Delete</a>
         <div>
       </td>
     </script>
@@ -76,6 +77,29 @@
       </div>
     </script>
 
+    <script type="text/template" id="contact-form">
+      <h1>Edit <%= firstName %> <%= lastName %></h1>
+      <form>
+        <div>
+          <label for="contact-firstName">First name:
+            <input id="contact-firstName" type="text"
+            value="<%= firstName %>" name="firstName" />
+          </label>
+        </div>
+        <div>
+          <label for="contact-lastName">Last name:</label>
+          <input id="contact-lastName" type="text"
+          value="<%= lastName %>" name="lastName" />
+        </div>
+        <div>
+          <label for="contact-phoneNumber">Phone:</label>
+          <input id="contact-phoneNumber" type="text"
+          value="<%= phoneNumber %>" name="phoneNumber" />
+        </div>
+        <button class="btn js-submit">Save</button>
+      </form>
+    </script>
+
     <!-- Application assets -->
     <script src="./assets/javascripts/app.js"></script>
     <script src="./assets/javascripts/apps/config/storage/backbone.localStorage.js"></script>
@@ -88,6 +112,8 @@
     <script src="./assets/javascripts/apps/contacts/list/list_view.js"></script>
     <script src="./assets/javascripts/apps/contacts/show/show_controller.js"></script>
     <script src="./assets/javascripts/apps/contacts/list/list_controller.js"></script>
+    <script src="./assets/javascripts/apps/contacts/edit/edit_controller.js"></script>
+    <script src="./assets/javascripts/apps/contacts/edit/edit_view.js"></script>
 
     <script type="text/javascript">
       ContactManager.start();

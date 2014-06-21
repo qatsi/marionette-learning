@@ -2,10 +2,14 @@ ContactManager.module('ContactsApp', function(ContactsApp, ContactManager, Backb
   ContactsApp.Router = Marionette.AppRouter.extend({
     appRoutes: {
       'contacts': 'listContacts',
-      'contacts/:id': 'showContact'
+      'contacts/:id': 'showContact',
+      'contacts/:id/edit': 'editContact'
     }
   });
   var API = {
+    editContact: function(id){
+      ContactsApp.Edit.Controller.editContact(id);
+    },
     listContacts: function(){
       console.log('Route #' + Backbone.history.fragment + ' triggered.');
       ContactsApp.List.Controller.listContacts();
