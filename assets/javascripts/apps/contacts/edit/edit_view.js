@@ -1,4 +1,4 @@
-ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Beckbone, Marionette, $, _){
+ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Backbone, Marionette, $, _){
   Edit.Contact = Marionette.ItemView.extend({
     template: '#contact-form',
     events: {
@@ -9,7 +9,8 @@ ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Beckbon
     },
     submitClicked: function(e){
       e.preventDefault();
-      console.log('Edit contact');
+      var data = Backbone.Syphon.serialize(this);
+      this.trigger('form:submit', data);
     }
   });
 });

@@ -1,4 +1,4 @@
-ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Beckbone, Marionette, $, _){
+ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Backbone, Marionette, $, _){
   Edit.Controller = {
     editContact: function(id){
       var loadingView = new ContactManager.Common.Views.Loading({
@@ -12,6 +12,10 @@ ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Beckbon
         if (contact !== undefined) {
           contactView = new Edit.Contact({
             model: contact
+          });
+          contactView.on('form:submit', function(data){
+            contact.save(data);
+            ContactManager.trigger('contact:show', contact.get('id'));
           });
         } else {
           contactView = new ContactManager.ContactsApp.Show.MissingContact();
