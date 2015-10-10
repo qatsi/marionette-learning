@@ -1,13 +1,6 @@
 # Marionette + Foundation example
 
-Heck! The easiest way to understand `Marionette` + `Foundation`.
-
-## Requirements
-
-* Passion
-* Brain (at least one hemisphere)
-* Hands
-* Milk
+Way to understand `Marionette` + `Foundation`.
 
 ## Quickstart
 This is very hard to determine entry point. The mixture is the following:
@@ -15,11 +8,9 @@ This is very hard to determine entry point. The mixture is the following:
 * [Marionette.js](http://marionettejs.com/) with dependencies
 * [Foundation](http://foundation.zurb.com/) with its dependencies too
 * [Bower](http://bower.io/) as Web-packages manager
-* To be continued…
 
 Please consider the following places to understand what is under the hood:
 
-  * This README.md
   * `bower.json` it describes packages used in project
   * `.bowerrc` **bower** web packages manager config. This is folder where bower packages installed to. These are shared JavaScript libraries so they are ignored by git.
   * `config.rb` [compass](http://compass-style.org/) configuration files. Some paths and setting are covered here. Feel free to change something and watch how `compass watch` will become nuts.

@@ -5,7 +5,7 @@ ContactManager.module('ContactsApp.Show', function(Show, ContactManager, Backbon
       'click a.js-edit': 'editClicked'
     },
     onShow: function(){
-      ContactManager.infoRegion.close();
+      ContactManager.infoRegion.destroy();
     },
     editClicked: function(e){
       e.preventDefault();
@@ -15,7 +15,7 @@ ContactManager.module('ContactsApp.Show', function(Show, ContactManager, Backbon
   Show.MissingContact = Marionette.ItemView.extend({
     template: '#missing-contact',
     onShow: function(){
-      ContactManager.infoRegion.close();
+      ContactManager.infoRegion.destroy();
     }
   });
 });

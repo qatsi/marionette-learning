@@ -5,7 +5,7 @@ ContactManager.module('ContactsApp.Edit', function(Edit, ContactManager, Backbon
       'click button.js-submit': 'submitClicked'
     },
     onShow: function(){
-      ContactManager.infoRegion.close();
+      ContactManager.infoRegion.destroy();
     },
     submitClicked: function(e){
       e.preventDefault();

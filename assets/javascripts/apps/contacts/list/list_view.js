@@ -38,16 +38,16 @@ ContactManager.module('ContactsApp.List', function(List, ContactManager, Backbon
   List.Contacts = Marionette.CompositeView.extend({
     tagName: 'table',
     template: List.Templates.listView,
-    itemView: List.Contact,
-    itemViewContainer: 'tbody',
+    childView: List.Contact,
+    childViewContainer: 'tbody',
     // Magic trigger
-    onItemviewContactDelete: function(){
+    onChildviewContactDelete: function(){
       this.$el.fadeOut(function(){
         $(this).fadeIn();
       });
     },
     onShow: function(){
-      ContactManager.infoRegion.close();
+      ContactManager.infoRegion.destroy();
     }
   });
 });

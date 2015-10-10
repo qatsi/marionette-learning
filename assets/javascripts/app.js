@@ -24,7 +24,7 @@ ContactManager.getCurrentRoute = function(){
   return Backbone.history.fragment;
 }
 
-ContactManager.on('initialize:after', function(){
+ContactManager.on('start', function(){
   if (Backbone.history) {
     Backbone.history.start();
     if (this.getCurrentRoute() === '') {
